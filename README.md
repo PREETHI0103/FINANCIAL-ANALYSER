@@ -1,85 +1,141 @@
-# FINANCIAL-ANALYSER
-# 💸 UPI Analyzer App
+💰 Smart Financial Analyzer (FinAssist AI)
+An AI-powered Streamlit web application that analyzes UPI or bank statement PDFs and generates personalized financial insights using Google Gemini (Gemini 1.5 Flash). This intelligent assistant extracts transactions, detects patterns, and gives budgeting tips — all in a simple, beautiful interface.
 
-An intelligent personal finance tool that extracts and analyzes UPI transaction data from financial PDFs (Paytm, GPay, PhonePe, etc.) using LLMs to provide insights, summaries, and personalized financial recommendations.
+🔗 Live Demo (Streamlit Cloud)
 
----
+https://financial-analyser-9wrdwpgbqxyfxam2yotrpn.streamlit.app/
 
-## 🚀 Features
+🚀 Key Features
+📄 Upload & Extract
+Upload bank/UPI statements (PDFs from Paytm, GPay, PhonePe, SBI, ICICI, HDFC etc.)
 
-- ✅ Extracts structured data (Date, Time, Amount, Receiver, Description, Category) from UPI PDF statements  
-- 🧹 Cleans and normalizes transaction data using `pandas`  
-- 📊 Analyzes spending patterns, time-based trends, and category-wise summaries  
-- 🔍 Detects wasteful/unusual transactions using LLMs  
-- 🤖 Generates LLM-based recommendations:
-  - Monthly budget planning
-  - Spending reduction strategies
-  - Personalized financial advice  
-- 🌐 Deployed with Streamlit or Gradio  
-- ☁️ Hostable on Hugging Face Spaces or other free-tier cloud platforms
+Text extracted using pdfplumber 🔍
 
----
+🤖 Gemini-Powered Transaction Extraction
+Transactions parsed using Google Gemini 1.5 Flash
 
----
+Output includes:
 
-## 📝 Step-by-Step Implementation
+📅 Date
 
-### 1. 📥 Dataset Preparation
+🕒 Time (if available)
 
-- **Input:**  
-  UPI PDF statements from Paytm, PhonePe, GPay, etc.
+💸 Amount
 
-- **Output:**  
-  Structured data in CSV/JSON format with fields:
-  - `Date`, `Time`, `Amount`, `Receiver`, `Description`, `Category`
+🧾 Description
 
-- **Libraries Used:**  
-  - `pdfplumber` or `PyMuPDF` for parsing PDFs  
-  - `pandas` for structuring data
+👤 Receiver
 
----
+📂 Category (Debit, Credit, etc.)
 
-### 2. 🧼 Text Preprocessing and Structuring
+📊 AI-Generated Financial Report
+Fully Markdown-rendered, readable financial insights
 
-- Parse PDFs using `pdfplumber` or `PyMuPDF`
-- Normalize and clean data:
-  - Convert timestamps and numeric fields
-  - Standardize column names and formats
-  - Extract merchant names and transaction categories from descriptions
+Structured report with tables, emojis, and headings
 
----
+Key sections:
 
-### 3. 🧠 Model Development (Langflow + LLM)
+Financial Overview (Income, Expenses, Savings)
 
-Use Langflow to build an interactive flow with chained LLM components for:
+Time-based Trends
 
-- 📊 Spending pattern analysis  
-- 🕒 Time-based trends  
-- 📂 Category-wise summaries  
-- 🚫 Wasteful transaction detection
+Category-wise Spend Breakdown
 
----
+Monthly Comparisons
 
-### 4. 🤖 LLM-Based Recommendation Generation
+Wasteful & Frequent Spending
 
-Prompt an LLM (e.g., GPT-4) for:
+50-30-20 Budget Advice
 
-- 🗓 Monthly budget planning  
-- ✂️ Suggestions to reduce unnecessary spending  
-- 💡 Personalized financial advice based on transaction behavior
+Personalized Money-Saving Tips
 
-**Example Prompt:**
+📥 Export Options
+Download JSON of extracted transactions
 
----
+Download full financial report (.txt)
 
-### 5. 🚀 Deployment
+🎉 “Balloons” animation before download to boost user delight
 
-- **Interface:** Streamlit or Gradio  
-- **Hosting Options:**
-  - Hugging Face Spaces (recommended for free hosting)
-  - Streamlit Community Cloud
-  - Localhost
+🧠 How It Works
+Upload a PDF (e.g., GPay or bank statement)
 
----
+App extracts and sends the text to Gemini AI
 
+Gemini extracts all transactions → JSON
+
+Another Gemini call analyzes the data and returns a detailed report
+
+Displayed in-app and available for download
+
+📦 Tech Stack
+Tool / Library	Purpose
+streamlit	Web interface
+pdfplumber	PDF text extraction
+google.generativeai	Gemini 1.5 Flash API integration
+json & os	File handling and parsing
+markdown	Report formatting
+
+📸 Screenshots
+Upload PDF	Extracted Transactions	Insights Report
+
+You can add real screenshots of your deployed app in a screens/ folder.
+
+⚙️ Setup Instructions
+Clone the repository
+
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/finassist-ai.git
+cd finassist-ai
+Install dependencies
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Set Gemini API key
+Create a .env file:
+
+env
+Copy
+Edit
+GEMINI_API_KEY=your_google_generative_ai_key
+Run the app locally
+
+bash
+Copy
+Edit
+streamlit run app.py
+🌐 Deployment
+Deployed on Streamlit Cloud for free access:
+
+Just link the GitHub repo
+
+Add the GEMINI_API_KEY in the Secrets section
+
+The app is now accessible via a public URL
+
+🙋 Use Cases
+📈 Personal finance tracking
+
+💡 Budget planning & optimization
+
+🧾 Automated expense analysis
+
+🔍 Detecting wasteful spending habits
+
+💬 Financial coaching insights
+
+✨ Future Improvements
+Add category auto-detection using NER models or rules
+
+Support for CSV uploads (not just PDFs)
+
+Add charts/visualizations using Plotly or Altair
+
+Multi-language support (for non-English statements)
+
+🧑‍💻 Author
+Built with ❤️ by [PREETHI S]
 
