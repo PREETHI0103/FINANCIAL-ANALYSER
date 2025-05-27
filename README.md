@@ -82,3 +82,9 @@ Built with ❤️ by **[PREETHI S]**
 
 ---
 
+## 🏷️ Tags
+
+`#streamlit` `#gemini` `#fintech` `#pdfplumber` `#finance-ai` `#nlp` `#budgeting` `#googleai`
+
+---
+
